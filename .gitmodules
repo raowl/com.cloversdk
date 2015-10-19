@@ -1,0 +1,4 @@
+[submodule "clover-android-sdk"]
+	path = clover-android-sdk
+	url = https://github.com/clover/clover-android-sdk.git
+	branch = master

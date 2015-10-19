@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.cloversdk"
+    version="0.1">
+    <name>CloverSDK</name>
+    <description>Clover SDK</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,clover,sdk</keywords>
+    <repo></repo>
+    <issue></issue>
+    <js-module src="www/CloverPlugin.js" name="CloverPlugin">
+        <clobbers target="window.clover" />
+    </js-module>
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="CloverPlugin" >
+                <param name="android-package" value="com.cloversdk.CloverPlugin"/>
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.GET_ACCOUNTS" />                                                                                
+            <uses-permission android:name="android.permission.USE_CREDENTIALS" />     
+        </config-file>
+
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v1/BindingException.java" target-dir="src/com/clover/sdk/v1"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v1/Validator.java" target-dir="src/com/clover/sdk/v1"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v1/ClientException.java" target-dir="src/com/clover/sdk/v1"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v1/merchant/MerchantIntent.java" target-dir="src/com/clover/sdk/v1/merchant"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v1/merchant/MerchantAddress.java" target-dir="src/com/clover/sdk/v1/merchant"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v1/merchant/MerchantConnector.java" target-dir="src/com/clover/sdk/v1/merchant"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v1/merchant/Merchant.java" target-dir="src/com/clover/sdk/v1/merchant"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v1/ServiceCallback.java" target-dir="src/com/clover/sdk/v1"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v1/ResultStatusException.java" target-dir="src/com/clover/sdk/v1"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v1/Intents.java" target-dir="src/com/clover/sdk/v1"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v1/ForbiddenException.java" target-dir="src/com/clover/sdk/v1"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v1/ServiceConnector.java" target-dir="src/com/clover/sdk/v1"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v1/app/AppNotificationIntent.java" target-dir="src/com/clover/sdk/v1/app"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v1/app/AppNotification.java" target-dir="src/com/clover/sdk/v1/app"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v1/app/AppNotificationReceiver.java" target-dir="src/com/clover/sdk/v1/app"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v1/app/AppIntent.java" target-dir="src/com/clover/sdk/v1/app"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v1/app/AppConnector.java" target-dir="src/com/clover/sdk/v1/app"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v1/ResultStatus.java" target-dir="src/com/clover/sdk/v1"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v1/ServiceException.java" target-dir="src/com/clover/sdk/v1"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v3/JsonParcelHelper.java" target-dir="src/com/clover/sdk/v3"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v3/Validator.java" target-dir="src/com/clover/sdk/v3"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v3/employees/EmployeeIntent.java" target-dir="src/com/clover/sdk/v3/employees"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v3/employees/EmployeeConnector.java" target-dir="src/com/clover/sdk/v3/employees"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v3/employees/PermissionSetRole.java" target-dir="src/com/clover/sdk/v3/employees"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v3/employees/Roles.java" target-dir="src/com/clover/sdk/v3/employees"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v3/employees/Role.java" target-dir="src/com/clover/sdk/v3/employees"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v3/employees/Shift.java" target-dir="src/com/clover/sdk/v3/employees"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v3/employees/Permission.java" target-dir="src/com/clover/sdk/v3/employees"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v3/employees/AccountRole.java" target-dir="src/com/clover/sdk/v3/employees"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v3/employees/PermissionSet.java" target-dir="src/com/clover/sdk/v3/employees"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v3/employees/Employee.java" target-dir="src/com/clover/sdk/v3/employees"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v3/employees/Permissions.java" target-dir="src/com/clover/sdk/v3/employees"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v3/employees/EmployeeUtils.java" target-dir="src/com/clover/sdk/v3/employees"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v3/employees/RolesContract.java" target-dir="src/com/clover/sdk/v3/employees"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v3/JsonHelper.java" target-dir="src/com/clover/sdk/v3"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v3/base/Tender.java" target-dir="src/com/clover/sdk/v3/base"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v3/base/Reference.java" target-dir="src/com/clover/sdk/v3/base"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v3/base/Address.java" target-dir="src/com/clover/sdk/v3/base"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v3/base/CountryInfo.java" target-dir="src/com/clover/sdk/v3/base"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v3/base/ApprovalStatus.java" target-dir="src/com/clover/sdk/v3/base"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v3/base/TenderConstants.java" target-dir="src/com/clover/sdk/v3/base"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v3/base/BusinessTypeCode.java" target-dir="src/com/clover/sdk/v3/base"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v3/base/ServiceCharge.java" target-dir="src/com/clover/sdk/v3/base"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/JSONifiable.java" target-dir="src/com/clover/sdk"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/SimpleSyncClient.java" target-dir="src/com/clover/sdk"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/GenericClient.java" target-dir="src/com/clover/sdk"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/ValueExtractorEnum.java" target-dir="src/com/clover/sdk"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/util/Platform.java" target-dir="src/com/clover/sdk/util"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/util/CloverAuth.java" target-dir="src/com/clover/sdk/util"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/util/AuthTask.java" target-dir="src/com/clover/sdk/util"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/util/CloverAccount.java" target-dir="src/com/clover/sdk/util"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/internal/util/Views.java" target-dir="src/com/clover/sdk/internal/util"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/internal/util/OutputUriFactory.java" target-dir="src/com/clover/sdk/internal/util"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/internal/util/Strings.java" target-dir="src/com/clover/sdk/internal/util"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/internal/util/UnstableCallClient.java" target-dir="src/com/clover/sdk/internal/util"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v1/merchant/TipSuggestion.java" target-dir="src/com/clover/sdk/v1/merchant"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v3/merchant/Module.java" target-dir="src/com/clover/sdk/v3/merchant"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/java/com/clover/sdk/v1/merchant/Module.java" target-dir="src/com/clover/sdk/v1/merchant"/>
+
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/aidl/com/clover/sdk/v1/merchant/MerchantAddress.aidl" target-dir="src/com/clover/sdk/v1/merchant"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/aidl/com/clover/sdk/v1/merchant/IMerchantListener.aidl" target-dir="src/com/clover/sdk/v1/merchant"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/aidl/com/clover/sdk/v1/merchant/Merchant.aidl" target-dir="src/com/clover/sdk/v1/merchant"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/aidl/com/clover/sdk/v1/merchant/IMerchantService.aidl" target-dir="src/com/clover/sdk/v1/merchant"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/aidl/com/clover/sdk/v1/app/IAppService.aidl" target-dir="src/com/clover/sdk/v1/app/"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/aidl/com/clover/sdk/v1/app/AppNotification.aidl" target-dir="src/com/clover/sdk/v1/app/"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/aidl/com/clover/sdk/v1/ResultStatus.aidl" target-dir="src/com/clover/sdk/v1/"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/aidl/com/clover/sdk/v3/employees/IEmployeeListener.aidl" target-dir="src/com/clover/sdk/v3/employees"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/aidl/com/clover/sdk/v3/employees/IEmployeeService.aidl" target-dir="src/com/clover/sdk/v3/employees"/>
+        <source-file src="clover-android-sdk/clover-android-sdk/src/main/aidl/com/clover/sdk/v3/employees/Employee.aidl" target-dir="src/com/clover/sdk/v3/employees"/>
+
+        <source-file src="clover-android-sdk/clover-android-sdk/lib/calc.jar" target-dir="libs/" />
+        <source-file src="src/android/CloverPlugin.java" target-dir="src/" />
+    </platform>
+</plugin>

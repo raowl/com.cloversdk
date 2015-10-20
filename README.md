@@ -5,6 +5,6 @@ A work in progress by now to access some merchant information using the Clover S
 Install
 ========
 
-cordova local plugin add https://github.com/raowl/com.cloversdk
+cordova plugin add https://github.com/raowl/com.cloversdk
 in index.html add: <script src="plugins/com.cloversdk/www/CloverPlugin.js"></script>
 in js: clover.getMerchant(success, error);

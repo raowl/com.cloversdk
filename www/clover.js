@@ -9,6 +9,4 @@ var clover = {
         );
     }
 }
-module.exports=CloverPlugin
-
-
+module.exports=clover

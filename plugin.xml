@@ -9,12 +9,14 @@
     <keywords>cordova,clover,sdk</keywords>
     <repo></repo>
     <issue></issue>
-    <js-module src="www/CloverPlugin.js" name="CloverPlugin">
-        <clobbers target="window.clover" />
+    <asset src="www/clover.js" target="js/clover.js"/>
+
+    <js-module name="clover" src="www/clover.js">
+        <clobbers target="clover" />
     </js-module>
     <!-- android -->
     <platform name="android">
-        <config-file target="res/xml/config.xml" parent="/*">
+        <config-file target="config.xml" parent="/*">
             <feature name="CloverPlugin" >
                 <param name="android-package" value="com.cloversdk.CloverPlugin"/>
             </feature>

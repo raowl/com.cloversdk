@@ -3,6 +3,7 @@ package com.cloversdk;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.PluginResult;
+import android.accounts.OperationCanceledException;
 import org.json.JSONObject;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -13,6 +14,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import com.clover.sdk.util.CloverAccount;
+import com.clover.sdk.util.CloverAuth;
 import com.clover.sdk.v1.ResultStatus;
 import com.clover.sdk.v1.ServiceConnector;
 import com.clover.sdk.v1.merchant.Merchant;
@@ -53,6 +55,7 @@ public class CloverPlugin extends CordovaPlugin implements MerchantConnector.OnM
                 connect();
                 getMerchant();
                 getEmployee();
+                getToken();
 		JSONObject obj = new JSONObject();
         try {
             obj.put("MerchantID", merchantID);
@@ -67,6 +70,7 @@ public class CloverPlugin extends CordovaPlugin implements MerchantConnector.OnM
             obj.put("Country", country);
             obj.put("EmployeeEmail", employeeEmail);
             obj.put("EmployeeName", employeeName);
+            obj.put("MerchantToken", merchantToken);
         } catch (JSONException e) {
             Log.e(TAG, e.getMessage(), e);
         }
@@ -103,6 +107,7 @@ public class CloverPlugin extends CordovaPlugin implements MerchantConnector.OnM
     private String country;
     private String employeeEmail;
     private String employeeName;
+    private String merchantToken;
     
     private void startAccountChooser() {
         AccountManager accountManager = AccountManager.get(this.cordova.getActivity().getApplicationContext());
@@ -146,6 +151,18 @@ public class CloverPlugin extends CordovaPlugin implements MerchantConnector.OnM
         }
         employeeEmail = employee.getEmail();
         employeeName = employee.getName();
+    }
+    // added
+    private void getToken() {
+		CloverAuth.AuthResult result = null;
+		try {
+		    result = CloverAuth.authenticate(cordova.getActivity(), account);
+		} catch (OperationCanceledException e) {
+          Log.e(TAG, "Authentication cancelled", e);
+        } catch (Exception e) {
+          Log.e(TAG, "Error retrieving authentication", e);
+        }
+        merchantToken = result.authToken; 
     }
     //up added
     private void getMerchant() {
